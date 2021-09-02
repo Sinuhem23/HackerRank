@@ -1,24 +1,24 @@
-'use strict';
+// 'use strict';
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+// process.stdin.resume();
+// process.stdin.setEncoding('utf-8');
 
-let inputString = '';
-let currentLine = 0;
+// let inputString = '';
+// let currentLine = 0;
 
-process.stdin.on('data', function (inputStdin) {
-  inputString += inputStdin;
-});
+// process.stdin.on('data', function (inputStdin) {
+//   inputString += inputStdin;
+// });
 
-process.stdin.on('end', function () {
-  inputString = inputString.split('\n');
+// process.stdin.on('end', function () {
+//   inputString = inputString.split('\n');
 
-  main();
-});
+//   main();
+// });
 
-function readLine() {
-  return inputString[currentLine++];
-}
+// function readLine() {
+//   return inputString[currentLine++];
+// }
 
 /*
  * Complete the 'countSwaps' function below.
@@ -43,14 +43,15 @@ function countSwaps(a) {
   console.log(`First Element: ${a[0]}`);
   console.log(`Last Element: ${a[n - 1]}`);
 }
+countSwaps([10, 2, 3]);
 
-function main() {
-  const n = parseInt(readLine().trim(), 10);
+// function main() {
+//   const n = parseInt(readLine().trim(), 10);
 
-  const a = readLine()
-    .replace(/\s+$/g, '')
-    .split(' ')
-    .map((aTemp) => parseInt(aTemp, 10));
+//   const a = readLine()
+//     .replace(/\s+$/g, '')
+//     .split(' ')
+//     .map((aTemp) => parseInt(aTemp, 10));
 
-  countSwaps(a);
-}
+//   countSwaps(a);
+// }
