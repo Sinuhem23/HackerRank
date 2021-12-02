@@ -31,10 +31,10 @@ function minimumBribes(q) {
   let swaps = 0;
   let min = q.length;
   // For loop to iterate through array starting with q.length-1
-  for (var i = min - 1; i >= 0; i--) {
+  for (var i = q.length - 1; i >= 0; i--) {
     // Set a return to print "Too Chaotic"
     if (q[i] - i > 3) {
-      return `Too chaotic`;
+      return 'Too chaotic';
     }
     // if current index is bigger q.length, add result of current index - q.length
     if (q[i] > i + 1) {
@@ -50,7 +50,7 @@ function minimumBribes(q) {
     }
   }
 
-  return swaps;
+  console.log(swaps);
 }
 
 // function main() {
