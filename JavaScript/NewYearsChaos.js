@@ -32,25 +32,35 @@ function minimumBribes(q) {
   let min = q.length;
   // For loop to iterate through array starting with q.length-1
   for (var i = q.length - 1; i >= 0; i--) {
-    // Set a return to print "Too Chaotic"
-    if (q[i] - i > 3) {
-      return 'Too chaotic';
-    }
-    // if current index is bigger q.length, add result of current index - q.length
-    if (q[i] > i + 1) {
-      swaps += q[i] - (i + 1);
-    } else {
-      // Else if q.length is bigger than current index q.length = current index
-      if (min > q[i]) {
-        min = q[i];
-        // Else if current index is not equal to q.length, then increment swap
-      } else if (q[i] != min) {
-        swaps++;
+    // if current index does not equal q.length
+    if (q[i] != i + 1) {
+      // if q.length -2 is bigger or equal to 0 and current index -1 is equal to q.length
+      if (i - 1 >= 0 && q[i - 1] == i + 1) {
+        // storing current index -1 in temp constant then swapping it with current index
+        const temp = q[i - 1];
+        q[i - 1] = q[i];
+        q[i] = temp;
+        // adding 1 to total swaps
+        noOfSwaps += 1;
+      }
+      // else if q.length - 3 is bigger or equal to 0 and curent index - 2 equals to q.length
+      else if (i - 2 >= 0 && q[i - 2] == i + 1) {
+        // storing current index -2 in temp constant then swapping it with current index -1 and swap current index -1 with current index then current index is swapped with temp
+        const temp = q[i - 2];
+        q[i - 2] = q[i - 1];
+        q[i - 1] = q[i];
+        q[i] = temp;
+        // adding 2 to total swaps
+        noOfSwaps = noOfSwaps + 2;
+      }
+      // Set else to console.log to "Too Chaotic" since it is 3+ swaps
+      else {
+        console.log('Too chaotic');
+        return;
       }
     }
   }
-
-  console.log(swaps);
+  console.log(noOfSwaps);
 }
 
 // function main() {
