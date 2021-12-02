@@ -29,7 +29,6 @@
 function minimumBribes(q) {
   // Keep track of all swaps
   let swaps = 0;
-  let min = q.length;
   // For loop to iterate through array starting with q.length-1
   for (var i = q.length - 1; i >= 0; i--) {
     // if current index does not equal q.length
@@ -41,7 +40,7 @@ function minimumBribes(q) {
         q[i - 1] = q[i];
         q[i] = temp;
         // adding 1 to total swaps
-        noOfSwaps += 1;
+        swaps += 1;
       }
       // else if q.length - 3 is bigger or equal to 0 and curent index - 2 equals to q.length
       else if (i - 2 >= 0 && q[i - 2] == i + 1) {
@@ -51,7 +50,7 @@ function minimumBribes(q) {
         q[i - 1] = q[i];
         q[i] = temp;
         // adding 2 to total swaps
-        noOfSwaps = noOfSwaps + 2;
+        swaps += 2;
       }
       // Set else to console.log to "Too Chaotic" since it is 3+ swaps
       else {
@@ -60,7 +59,7 @@ function minimumBribes(q) {
       }
     }
   }
-  console.log(noOfSwaps);
+  console.log(swaps);
 }
 
 // function main() {
